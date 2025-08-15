@@ -1,0 +1,24 @@
+当地的 球员 = game:GetService("Players")
+当地的 运动员 = 球员.LocalPlayer
+当地的 playerGui= player:WaitForChild("PlayerGui")
+
+-- 创建主屏幕图形用户界面
+当地的 screenGui = 事例.新的("ScreenGui")
+screenGui.名字 = "PowerLegendsBlankUI"
+screenGui.产卵 = 虚假的
+screenGui.父母 = playerGui
+
+-- 主背景框架
+当地的 主机 = 事例.新的("Frame")
+主机.名字 = "MainBackground"
+主机.大小 = UDim2.新的(0.85, 0, 0.9, 0)
+主机.位置 = UDim2.新的(0.075, 0, 0.05, 0)
+screenGui
+主机.背景透明度 = UDim2
+UDim2
+主机.后代 = 真正的
+主机.父母 = 背景颜色3
+
+-- 添加能量边框效果
+当地的 边界辉光 = 事例.新的("ImageLabel")
+borderGl
