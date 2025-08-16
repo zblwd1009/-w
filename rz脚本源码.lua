@@ -8,9 +8,9 @@ local Tab = Window:MakeTab({
     PremiumOnly = false
 })
 
-Tab:AddParagraph("作者","rz")
+Tab:AddParagraph("作者","牛")
 Tab:AddLabel("完全可以搭配我的解卡密一起用")
-Tab:AddLabel("作者q3245175551")
+Tab:AddLabel("作者q659063869")
 Tab:AddLabel("禁止倒卖")
 
 local Tab = Window:MakeTab({
@@ -322,10 +322,10 @@ Tab:AddButton({
   end
 })
 Tab:AddButton({
-	Name = "自然灾害2",
+	Name = "力量传奇换包",
 	Callback = function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true))()
-  	end    
+     loadstring(game:HttpGet("https://raw.github.com/f20i30s40h/Crack/main/Cracked-ShuiJiaoScript.lua"))("力量传奇切换宠物")
+			
 })
 
 local Tab = Window:MakeTab({
@@ -1138,5 +1138,6 @@ Tab:AddButton({
     loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\103\101\109\120\72\119\65\49"))()
     end
 })
+
 
 OrionLib:Init()
