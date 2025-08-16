@@ -1,0 +1,13 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ato = Instance.new("TextButton")
+ScreenGui.Parent = game.CoreGui
+frame.Name ="frame"
+frame.Parent = ScreenGui
+frame.BackgroundColor3 = Color3.
+ifromRGB(248, 248, 248)
+frame.Position = UDim2.new(0.326148063,
+10, 0.29880476, 0)
+frame.Size = UDim2.new(0, 392, 0, 500)
+frame.Active = true
+frame.Draggable = true
