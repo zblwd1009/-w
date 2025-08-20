@@ -38,20 +38,20 @@ local function HeartbeatUpdate()
 end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
-game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "Y脚本"; Text ="启动中"; Duration = 2; })
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "牛脚本"; Text ="启动中"; Duration = 2; })
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "正在加载"; Text ="启动完毕"; Duration = 4; })
 
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/whenheer/hhi/refs/heads/main/%E5%A4%A7%E5%8F%B8%E9%A9%AC%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%BF%83ui%E6%9C%80%E6%96%B0%E7%89%88.lua"))();        
-local win = ui:new("Y脚本中心")
+local win = ui:new("牛脚本中心")
 --
 local UITab1 = win:Tab("『信息』",'7734068321')
 
 local about = UITab1:section("『作者信息』",false)
 
-about:Label("Y脚本")
-about:Label("作者：Y")
-about:Label("qq群1055935003")
-about:Label("师傅KE")
+about:Label("牛脚本")
+about:Label("作者：牛")
+about:Label("qq群1016338768")
+about:Label("师傅无")
 about:Label("感谢使用")
 
 local about = UITab1:section("『玩家信息』",false)
@@ -62,7 +62,7 @@ local UITab2 = win:Tab("『公告』",'7734068321')
 
 local about = UITab2:section("『公告』",true)
 
-about:Label("感谢支持Y脚本的人")
+about:Label("感谢支持牛脚本的人")
 about:Label("已修复完bug")
 about:Label("有问题反馈到群")
 
@@ -122,8 +122,8 @@ local UITab5 = win:Tab("『复制栏』",'16060333448')
 
 local about = UITab5:section("『复制』",false)
 
-    about:Button("点我复制Y脚本交流主群",function()
-    setclipboard("794818500")
+    about:Button("点我复制牛脚本交流主群",function()
+    setclipboard("1016338768")
 end)
 
 local UITab6 = win:Tab("『人物』",'16060333448')
