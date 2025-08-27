@@ -1,0 +1,13 @@
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/xLRUSiKx'))()
+local Window = OrionLib:MakeWindow({Name = "无力脚本", HidePremium = false, SaveConfig = true,IntroText = "无力起动中", ConfigFolder = "我无敌"})
+local Tab = Window:MakeTab({
+    Name = "脚本",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "力量传奇",
+	Callback = function()
+脚本
+end
+})    
