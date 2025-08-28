@@ -1,1 +1,15 @@
-local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/xLRUSiKx'))()local Window = OrionLib:MakeWindow({Name = "悬浮窗显示的字", HidePremium = false, SaveConfig = true,IntroText = "启动时动画显示的字", ConfigFolder = "乱输"})local Tab = Window:MakeTab({    Name = "功能分类名",	Icon = "rbxassetid://4483345998",	PremiumOnly = false})Tab:AddButton({	Name = "功能名",	Callback = function()脚本end})    Tab:AddButton({	Name = "功能名",	Callback = function()脚本end})......local Tab = Window:MakeTab({    Name = "功能分类名",	Icon = "rbxassetid://4483345998",	PremiumOnly = false})Tab:AddButton({	Name = "脚本名",	Callback = function()脚本end})    Tab:AddButton({	Name = "脚本名",	Callback = function()脚本end})
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/xLRUSiKx'))()local Window = OrionLib:MakeWindow({Name = "无力🐂逼", HidePremium = false, SaveConfig = true,IntroText = "无力起动中", ConfigFolder = "1"})local Tab = Window:MakeTab({    Name = "无",	Icon = "rbxassetid://4483345998",	PremiumOnly = false})Tab:AddButton({	Name = "还没定好",	Callback = function()无end})    Tab:AddButton({	Name = "还没定好",	Callback = function()无end})......local Tab = Window:MakeTab({    Name = "无",	Icon = "rbxassetid://4483345998",	PremiumOnly = false})
+
+Tab:AddButton({	Name = "自动挥拳",	Callback = function()while true do
+local args = {
+	"punch",
+	"rightHand"
+}
+game:GetService("Players").LocalPlayer:WaitForChild("muscleEvent"):FireServer(unpack(args))
+wait(0.5)
+end})    
+
+Tab:AddButton({	Name = "自动锻炼",	Callback = function()while true do
+game:GetService("Players").LocalPlayer:WaitForChild("muscleEvent")
+wait(0.5)
+end})
