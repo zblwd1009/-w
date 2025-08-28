@@ -1,0 +1,19 @@
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/xLRUSiKx'))()
+local Window = OrionLib:MakeWindow({Name = "无力", HidePremium = false, SaveConfig = true,IntroText = "起动中", ConfigFolder = "无力脚本.txt"})
+local Tab = Window:MakeTab({
+    Name = "力量传奇",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "自动锻炼",
+	Callback = function()
+while tued do
+local args = {
+	"punch",
+	"rightHand"
+}
+game:GetService("Players").LocalPlayer:WaitForChild("muscleEvent"):FireServer(unpack(args))
+wait(0.5)
+end
+})    
