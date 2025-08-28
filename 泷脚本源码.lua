@@ -1,0 +1,80 @@
+local CoreGui = game:GetService("StarterGui")CoreGui:SetCore("SendNotification", {    Title = "无力脚本",    Text = "耐心等待（反挂机已开启）",    Duration = 5, })print("反挂机开启")		local vu = game:GetService("VirtualUser")		game:GetService("Players").LocalPlayer.Idled:connect(function()		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)		   wait(1)		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)		end)
+
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/SePpsSPZ'))()
+
+local Window = OrionLib:MakeWindow({Name = "无力脚本", HidePremium = false, SaveConfig = false, IntroText = "欢迎使用", ConfigFolder = "欢迎使用"})
+
+local Tab = Window:MakeTab({
+    Name = "脚本公告",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddParagraph("作者","无力")
+Tab:AddLabel("作者q群1018757951")
+Tab:AddLabel("你的注入器:"..identifyexecutor())
+Tab:AddLabel("你的用户名:"..game.Players.LocalPlayer.Character.Name)
+Tab:AddButton({
+   Name = "点击复制q群号",
+   Callback = function()
+    setclipboard("1018757951")
+   end
+})
+Tab:AddLabel("部分自制")
+Tab:AddLabel("无力")
+
+local ScreenGui = Instance.new("ScreenGui")local UI = Instance.new("Frame")local Title = Instance.new("TextLabel")local Frame = Instance.new("Frame")local Key = Instance.new("TextBox")local Start = Instance.new("TextButton")ScreenGui.Parent = game.CoreGuiScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.SiblingUI.Name = "卡密：57835"UI.Parent = ScreenGuiUI.Active = trueUI.BackgroundColor3 = Color3.new(0, 0, 0)UI.BackgroundTransparency = 0UI.BorderSizePixel = 3UI.Position = UDim2.new(0.5, -150, 0.5, -67)UI.Size = UDim2.new(0, 260, 0, 250)UI.Draggable = trueTitle.Name = "Title"Title.Parent = UITitle.BackgroundColor3 = Color3.new(68, 68, 68)Title.BackgroundTransparency = 1Title.BorderSizePixel = 2Title.Position = UDim2.new(0, 0, 0.02, 0)Title.Size = UDim2.new(1, 0, 0, 50)Title.Font = Enum.Font.SourceSansTitle.Text = "密钥系统"Title.TextColor3 = Color3.new(0, 0, 255)Title.TextScaled = trueTitle.TextSize = 14Title.TextWrapped = trueFrame.Parent = TitleFrame.BackgroundColor3 = Color3.new(0, 0, 255)Frame.BorderSizePixel = 0Frame.Position = UDim2.new(0.07, 0, 0.9, 0)Frame.Size = UDim2.new(0.85, 0, 0, 6)Key.Name = "Key"Key.Parent = UIKey.BackgroundColor3 = Color3.new(1, 1, 1)Key.BorderSizePixel = 0Key.Position = UDim2.new(0.1, 0, 0.31, 0)Key.Size = UDim2.new(0.8, 0, 0, 50)Key.Font = Enum.Font.SourceSansKey.PlaceholderText = "输入钥密"Key.Text = ""Key.TextColor3 = Color3.new(0, 0, 0)Key.TextScaled = trueKey.TextSize = 14Key.TextWrapped = trueStart.Name = "Start"Start.Parent = UIStart.BackgroundColor3 = Color3.new(0, 0, 255)Start.BackgroundTransparency = 0Start.BorderSizePixel = 2Start.Position = UDim2.new(0.25, 0, 0.65, 0)Start.Size = UDim2.new(0.5, 0, 0, 45)Start.Font = Enum.Font.GothamStart.Text = "检查卡密"Start.TextColor3 = Color3.new(0, 0, 0)Start.TextScaled = trueStart.TextSize = 10Start.TextWrapped = trueStart.MouseButton1Click:Connect(function()    if Key.Text == "57835" then        ScreenGui:Destroy()        无力     else        game.Players.LocalPlayer:Kick("🤓🤓")    endend)
+
+local LBLG = Instance.new("ScreenGui", getParent)local LBL = Instance.new("TextLabel", getParent)local player = game.Players.LocalPlayerLBLG.Name = "LBLG"LBLG.Parent = game.CoreGuiLBLG.ZIndexBehavior = Enum.ZIndexBehavior.SiblingLBLG.Enabled = trueLBL.Name = "LBL"LBL.Parent = LBLGLBL.BackgroundColor3 = Color3.new(1, 1, 1)LBL.BackgroundTransparency = 1LBL.BorderColor3 = Color3.new(0, 0, 0)LBL.Position = UDim2.new(0.75,0,0.010,0)LBL.Size = UDim2.new(0, 133, 0, 30)LBL.Font = Enum.Font.GothamSemiboldLBL.Text = "TextLabel"LBL.TextColor3 = Color3.new(1, 1, 1)LBL.TextScaled = trueLBL.TextSize = 14LBL.TextWrapped = trueLBL.Visible = truelocal FpsLabel = LBLlocal Heartbeat = game:GetService("RunService").Heartbeatlocal LastIteration, Startlocal FrameUpdateTable = { }local function HeartbeatUpdate()	LastIteration = tick()	for Index = #FrameUpdateTable, 1, -1 do		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil	end	FrameUpdateTable[1] = LastIteration	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))	CurrentFPS = CurrentFPS - CurrentFPS % 1	FpsLabel.Text = ("北京时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))endStart = tick()
+
+local Tab = Window:MakeTab({
+    Name = "极速",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+  Name = "1-会覆盖",
+  Callback = function()
+    loadstring(game:HttpGet('\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\98\111\121\115\99\112\47\98\101\116\97\47\109\97\105\110\47\37\69\57\37\56\48\37\57\70\37\69\53\37\66\65\37\65\54\37\69\55\37\56\50\37\66\56\37\69\56\37\66\53\37\66\55\46\108\117\97'))()
+  end
+})
+
+Tab:AddButton({
+    Name = "开启卡宠",
+    Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/uR6azdQQ"))()
+    end
+})
+
+Tab:AddButton({
+    Name = "自动",
+    Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/AyeCYbT6"))()
+    end
+})
+
+local Tab = Window:MakeTab({
+    Name = "力量",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "力量传奇自动锻炼",
+    Callback = function()
+    while true do
+local args = {
+	"rep"
+}
+game:GetService("Players").LocalPlayer:WaitForChild("muscleEvent"):FireServer(unpack(args))
+wait(0.5)
+    end
+})
+
+Tab:AddButton({
+   Name = "力量传奇传送",
+   Callback = function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/li/main/%E4%B8%81%E4%B8%81%E5%8A%9B%E9%87%8F.lua"))()  
+   end
+})
