@@ -1,0 +1,166 @@
+if _G.Executed then
+    _G.Executed = false
+    if _G.UI then
+        _G.UI:Destroy()
+    end
+    wait(1)
+end
+_G.Executed = true
+
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local MainUI = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local ToggleButton = Instance.new("TextButton")
+local StatusLabel = Instance.new("TextLabel")
+local RebirthLabel = Instance.new("TextLabel")
+local RebirthInput = Instance.new("TextBox")
+local RebirthToggle = Instance.new("TextButton")
+
+MainUI.Name = "PowerFarmGUI"
+MainUI.Parent = game.CoreGui
+MainUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = MainUI
+MainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.05, 0, 0.3, 0)
+MainFrame.Size = UDim2.new(0, 250, 0, 200)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Title.Size = UDim2.new(0, 250, 0, 30)
+Title.Font = Enum.Font.SciFi
+Title.Text = "力量传奇农场 v1.0"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 16.000
+
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Parent = MainFrame
+ToggleButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+ToggleButton.Position = UDim2.new(0.1, 0, 0.25, 0)
+ToggleButton.Size = UDim2.new(0, 200, 0, 40)
+ToggleButton.Font = Enum.Font.Code
+ToggleButton.Text = "开始农场 (OFF)"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)
+ToggleButton.TextSize = 18.000
+
+StatusLabel.Name = "StatusLabel"
+StatusLabel.Parent = MainFrame
+StatusLabel.BackgroundTransparency = 1.0
+StatusLabel.Position = UDim2.new(0.1, 0, 0.5, 0)
+StatusLabel.Size = UDim2.new(0, 200, 0, 20)
+StatusLabel.Font = Enum.Font.Code
+StatusLabel.Text = "状态: 等待中..."
+StatusLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+StatusLabel.TextSize = 14.000
+
+RebirthLabel.Name = "RebirthLabel"
+RebirthLabel.Parent = MainFrame
+RebirthLabel.BackgroundTransparency = 1.0
+RebirthLabel.Position = UDim2.new(0.1, 0, 0.65, 0)
+RebirthLabel.Size = UDim2.new(0, 100, 0, 20)
+RebirthLabel.Font = Enum.Font.Code
+RebirthLabel.Text = "重生次数:"
+RebirthLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+RebirthLabel.TextSize = 14.000
+
+RebirthInput.Name = "RebirthInput"
+RebirthInput.Parent = MainFrame
+RebirthInput.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+RebirthInput.Position = UDim2.new(0.1, 0, 0.78, 0)
+RebirthInput.Size = UDim2.new(0, 100, 0, 25)
+RebirthInput.Font = Enum.Font.Code
+RebirthInput.PlaceholderText = "例如: 1"
+RebirthInput.Text = ""
+RebirthInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+RebirthInput.TextSize = 14.000
+
+RebirthToggle.Name = "RebirthToggle"
+RebirthToggle.Parent = MainFrame
+RebirthToggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+RebirthToggle.Position = UDim2.new(0.55, 0, 0.78, 0)
+RebirthToggle.Size = UDim2.new(0, 90, 0, 25)
+RebirthToggle.Font = Enum.Font.Code
+RebirthToggle.Text = "自动重生 (OFF)"
+RebirthToggle.TextColor3 = Color3.fromRGB(255, 50, 50)
+RebirthToggle.TextSize = 14.000
+
+local FarmEnabled = false
+local AutoRebirthEnabled = false
+local TargetRebirth = 1
+
+function AutoFarm()
+    while FarmEnabled and _G.Executed do
+        task.wait() -- 使用 task.wait() 更高效
+
+        local trainingPart = workspace:FindFirstChild("Dumbbell") or workspace:FindFirstChild("Barbell")
+
+        if trainingPart and trainingPart:IsA("Part") then
+
+Character:MoveTo(trainingPart.Position + Vector3.new(3, 0, 0))
+
+            local clickRemote = game:GetService("ReplicatedStorage"):FindFirstChild("ClickEvent") or
+                               game:GetService("ReplicatedStorage"):FindFirstChild("TrainEvent")
+
+            if clickRemote then
+                for i = 1, 10 do
+                    if not FarmEnabled then break end
+                    clickRemote:FireServer(trainingPart)
+                    task.wait(0.05) -- 点击间隔
+                end
+            else
+                fireclickdetector(trainingPart:FindFirstChildOfClass("ClickDetector"), 0)
+            end
+            StatusLabel.Text = "状态: 训练中..."
+        else
+            StatusLabel.Text = "状态: 未找到训练物体!"
+        end
+
+    StatusLabel.Text = "状态: 农场已停止."
+end
+
+ToggleButton.MouseButton1Click:Connect(function()
+    FarmEnabled = not FarmEnabled
+    if FarmEnabled then
+        ToggleButton.Text = "停止农场 (ON)"
+        ToggleButton.TextColor3 = Color3.fromRGB(50, 255, 50)
+        StatusLabel.Text = "状态: 启动中..."
+        spawn(AutoFarm)
+    else
+        ToggleButton.Text = "开始农场 (OFF)"
+        ToggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)
+    end
+end)
+
+RebirthToggle.MouseButton1Click:Connect(function()
+    AutoRebirthEnabled = not AutoRebirthEnabled
+    if AutoRebirthEnabled then
+        TargetRebirth = tonumber(RebirthInput.Text) or 1
+        RebirthToggle.Text = "自动重生 (ON)"
+        RebirthToggle.TextColor3 = Color3.fromRGB(50, 255, 50)
+    else
+        RebirthToggle.Text = "自动重生 (OFF)"
+        RebirthToggle.TextColor3 = Color3.fromRGB(255, 50, 50)
+    end
+end)
+
+-- 关闭GUI时停止脚本
+MainUI.Destroying:Connect(function()
+    _G.Executed = false
+    FarmEnabled = false
+end)
+
+-- 保存GUI引用到全局变量
+_G.UI = MainUI
+
+StatusLabel.Text = "状态: GUI 加载完毕！"
